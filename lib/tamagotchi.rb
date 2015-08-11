@@ -1,11 +1,30 @@
 class Tamagotchi
 
+  # Globals
+  $time
+
   define_method(:initialize) do |name|
     @name = name
     @nourishment = 50
     @happiness   = 50
     @restfulness = 50
+    @time  = Time.now.sec
+    run_time
   end
+
+  define_method(:run_time) do
+    if @start_time % 10 == 0
+      @nourishment -= 1
+    elsif @start_time % 6 == 0
+      @restfulness -= 1
+    elsif @start_time % 5 == 0
+      @happiness -= 1
+    end
+
+    @time = Time.now.sec
+    its_alive?
+  end
+
   define_method(:name) do
     @name
   end
@@ -27,6 +46,7 @@ class Tamagotchi
       false
     else
       true
+      run_time
     end
   end
 end

@@ -48,7 +48,6 @@ describe(Tamagotchi) do
       my_pet = Tamagotchi.new("Bob")
       expect(my_pet.its_alive?()).to(eq(true))
     end
-
   end
 
 end
