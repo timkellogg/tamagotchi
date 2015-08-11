@@ -50,4 +50,7 @@ describe(Tamagotchi) do
     end
   end
 
+  describe('keeps track of time') do
+    
+  end
 end

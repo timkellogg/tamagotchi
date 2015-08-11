@@ -1,28 +1,29 @@
 class Tamagotchi
 
-  # Globals
-  $time
-
   define_method(:initialize) do |name|
     @name = name
-    @nourishment = 50
-    @happiness   = 50
-    @restfulness = 50
-    @time  = Time.now.sec
-    run_time
+    @nourishment  = 1000
+    @happiness    = 1000
+    @restfulness  = 1000
+    @start_time   = Time.now.to_i()
+    @current_time = @start_time
+    @time_passed  = @current_time - @start_time
+  end
+
+  define_method(:current_time) do
+    @current_time = Time.now.to_i()
   end
 
   define_method(:run_time) do
-    if @start_time % 10 == 0
-      @nourishment -= 1
-    elsif @start_time % 6 == 0
-      @restfulness -= 1
-    elsif @start_time % 5 == 0
-      @happiness -= 1
+    if @time_passed/10 == 0
+      @nourishment -= @time_passed
+    elsif @time % 6 == 0
+      @restfulness -= @time_passed
+    elsif @time % 5 == 0
+      @happiness -= @time_passed
     end
 
-    @time = Time.now.sec
-    its_alive?
+    current_time
   end
 
   define_method(:name) do
@@ -46,7 +47,6 @@ class Tamagotchi
       false
     else
       true
-      run_time
     end
   end
 end
