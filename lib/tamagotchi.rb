@@ -23,8 +23,10 @@ class Tamagotchi
   end
 
   define_method(:its_alive?) do
-    if @nourishment.eql?(0)
+    if @nourishment.eql?(0) || @happiness.eql?(0) || @restfulness.eql?(0)
       false
+    else
+      true
     end
   end
 end

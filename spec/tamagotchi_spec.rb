@@ -24,7 +24,31 @@ describe(Tamagotchi) do
       expect(my_pet.its_alive?()).to(eq(true))
     end
 
-    # it('is dead if nourishment i')
+    it('is alive if happiness != 0') do
+      my_pet = Tamagotchi.new("Bob")
+      expect(my_pet.its_alive?()).to(eq(true))
+    end
+
+    it('is alive if restfulness != 0') do
+      my_pet = Tamagotchi.new("Bob")
+      expect(my_pet.its_alive?()).to(eq(true))
+    end
+
+    it('is dead if nourishment = 0') do
+      my_pet = Tamagotchi.new("Bob")
+      expect(my_pet.its_alive?()).to(eq(true))
+    end
+
+    it('is dead if happiness = 0') do
+      my_pet = Tamagotchi.new("Bob")
+      expect(my_pet.its_alive?()).to(eq(true))
+    end
+
+    it('is dead if restfulness = 0') do
+      my_pet = Tamagotchi.new("Bob")
+      expect(my_pet.its_alive?()).to(eq(true))
+    end
+
   end
 
 end
